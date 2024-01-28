@@ -150,18 +150,43 @@ void uncoverAdjacentEmptyCells(int row, int col)
     }
     else if (finalBoard[row][col] != '*')
     {
-        hiddenBoard[row][col] = '#'; // Change the symbol to '#' for cells with no mine
+        hiddenBoard[row][col] = '#';
+        } // Change the symbol to '#' for cells with no mine
+    
+     if (finalBoard[row-1][col-1] != '*')
+    {
+        hiddenBoard[row-1][col-1] = '#'; 
+        }
+ 
+    if (finalBoard[row-1][col] != '*')
+    {
+        hiddenBoard[row-1][col] = '#'; 
+        }
+    if (finalBoard[row][col-1] != '*')
+    {
+        hiddenBoard[row][col-1] = '#'; 
+        }
+    if (finalBoard[row+1][col+1] != '*')
+    {
+        hiddenBoard[row+1][col+1] = '#'; 
+        }
+    if (finalBoard[row+1][col] != '*')
+    {
+        hiddenBoard[row+1][col] = '#'; 
+        }
+    if (finalBoard[row][col+1] != '*')
+    {
+        hiddenBoard[row][col+1] = '#'; 
+        }
+    if (finalBoard[row-1][col+1] != '*')
+    {
+        hiddenBoard[row-1][col+1] = '#'; 
+        }
+    if (finalBoard[row+1][-1] != '*')
+    {
+        hiddenBoard[row+1][col-1] = '#'; 
+        }
 
-        // Uncover adjacent empty cells recursively
-        uncoverAdjacentEmptyCells(row - 1, col - 1);
-        uncoverAdjacentEmptyCells(row - 1, col);
-        uncoverAdjacentEmptyCells(row - 1, col + 1);
-        uncoverAdjacentEmptyCells(row, col - 1);
-        uncoverAdjacentEmptyCells(row, col + 1);
-        uncoverAdjacentEmptyCells(row + 1, col - 1);
-        uncoverAdjacentEmptyCells(row + 1, col);
-        uncoverAdjacentEmptyCells(row + 1, col + 1);
-    }
 }
 
 
@@ -291,6 +316,6 @@ void endGame(void)
     exit(1);
 }                                         
 
-
+// tried a lot of changes but was not able to get the recursive method to work
 
  
